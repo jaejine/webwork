@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 비동기
+    async function getBoard(){
+      fetch("http://localhost:3000/board/1")
+      .then( res => res.json() )
+      .then( res => console.log("1", res.title))
+      console.log("2", "end response")
+    }
+
+  getBoard();
+  console.log("3", "the end");
+
+  //   // 동기
+  //   async function getBoard1(){
+  //     let res = await fetch("http://localhost:3000/board/1")
+  //     res = await res.json
+  //     console.log("1", res.title);
+  //     console.log("2", "end response")
+  //   }
+
+  // getBoard1();
+  // console.log("3", "the end");
+
+  //   // 동기 아님 비동기
+  //   async function getBoard1(){
+  //     let res = await axios ("http://localhost:3000/board/1")
+  //     console.log("1", res.title);
+  //     console.log("2", "end response")
+  //   }
+
+  // getBoard1();
+  // console.log("3", "the end");
+
+  </script>
+</body>
+</html>

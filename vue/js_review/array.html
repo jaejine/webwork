@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array.html</title>
+</head>
+<body>
+  <div class="fruit">
+    <p data-price="300" data-cnt="10">사과</p>
+    <p data-price="500">바나나</p>
+    <p data-price="100">오렌지</p>
+  </div>
+  <script>
+    const fruits = document.querySelectorAll(".fruit p");
+
+    // fruits.forEach((element, index)=>{console.log(element.innerHTML)})
+    let arr = Array.from(fruits).map( ele => ({ name : ele.innerHTML, price : ele.dataset.price }))
+
+    console.log(arr);
+    // [{name:사과 price:100}, 바나나, 오렌지]  p태그 안에있는 텍스트값만 추출해서 배열로 만들어서 서버로 보냄
+
+    // sort 함수 : 파괴함수 ( 배열 원본을 바꿈 )
+    arr.sort((a,b) => {
+      if(a.price > b.price) return 1;
+      else if( a.price == b.price) return 0;
+      else return -1;
+    })
+    console.log(arr)
+
+    //find(최초 일치하는 1개만 찾음) vs filter(조건에 맞는 n개 다 찾음)
+    let fildResult = arr.find(ele => ele.price > 200)
+    console.log("find",fildResult);
+
+    let filterResult = arr.filter(ele => ele.price > 200)
+    console.log("filter",filterResult);
+    
+  </script>
+</body>
+</html>

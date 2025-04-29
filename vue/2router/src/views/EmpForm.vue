@@ -1,0 +1,42 @@
+<script>
+export default{
+      data : function(){
+        return {
+          depts : [{ deptno:10, dname:"개발" },
+                  { deptno:20, dname:"인사" },
+                  { deptno:30, dname:"총무" }],
+          emp: {
+            employee_id : "100",
+            first_name : "",
+            last_name : "",
+            email : "",
+            phone_number : "",
+            hire_date : "",
+            job_id : "",
+            salary : "",
+            commission_pct : "",
+            manager_id : "",
+            department_id : "20"
+          }
+        }
+      },
+      methods : {     
+        empUpdate(){
+          console.log(this.emp);
+          //fetch
+        }
+      }
+    }
+</script>
+<template>
+    사번 : <input v-model="emp.employee_id"><br>
+    fanme : <input v-model="emp.first_name"><br>
+    jobId : <input type="radio" v-model="emp.job_id" value="it">IT
+            <input type="radio" v-model="emp.job_id" value="SALES">SALES<br>
+    부서 : <select v-model="emp.department_id">
+           <option v-for="de in depts">{{de.dname}}</option>
+           </select><br>
+    <button @click="empUpdate()">수정</button>
+</template>
+<style>
+</style>
