@@ -121,18 +121,40 @@ let data = [
   }
 ]; // emp 배열만 들고오기 
 
+// 전체조회 REST
 app.get('/emp', (req, res) => {
   res.send(data)
 })
 
-// 부서가 10번인 첫번째 사원
+// 사원 단건조회
+app.get('/emp/:id', (req, res) => {
+  let id = req.params.id
+  let result = data.find((emp) => emp.id == id)
+  if(result)
+    res.send(result)
+  else
+  res.send("not find")
+})
+
+// 부서가 10번인 첫번째 사원 
+// find?departmentId=20  <<== 이럴경우 req.query
 app.get('/find', (req, res) => {
-  res.send('home hello!')
+  let departmentId = req.query.departmentId
+  let result = data.filter((dept) => dept.department_id == departmentId)
+  if(departmentId)
+    res.send(result)
+  else
+  res.send('not find')
 })
 
 // job_id가 'it'인 사원만 조회
 app.get('/filter', (req, res) => {
-  res.send('home hello!')
+  let jobId = req.query.jobId
+  let result = data.filter((jobid) => jobid.job_id == jobId)
+  if(jobId)
+    res.send(result)
+  else
+    res.send('not find')
 })
 
 // firstname 순으로 정렬
