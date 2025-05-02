@@ -15,9 +15,10 @@
         id="content"
         style="height: 200px" v-model="boardInfo.content"
       ></textarea>
-
-      <label for="regdate">작성일자</label>
-      <input type="text" readonly />
+      <div v-if="this.searchNo">
+        <label for="regdate">작성일자</label>
+        <input type="text" id="regdate" v-bind="dateFormat" readonly/>
+      </div>
 
       <button
         type="button"
@@ -43,10 +44,16 @@ export default{
       this.getBoardInfo()
     }
   },
+  computed:{
+    dateFormat(){
+      // 날짜 포맷 date -> y m d
+     return this.boardInfo.created_date//.substr(0, 10)
+    }
+  },
   methods:{
     async getBoardInfo(){
       let result = await axios.get(`http://localhost:3000/board/${this.searchNo}`);
-      this.boardInfo = result.data
+      this.boardInfo = result.data[0];
     },
     async updateBoard() {
       try {

@@ -36,7 +36,7 @@ export default {
   },
   methods:{
     async getBoardList(){
-      let result = await axios.get(`http://localhost:3000/board`);
+      let result = await axios.get(``);
       this.boardList = result.data;
     },
     // fetchList(){

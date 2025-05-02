@@ -45,6 +45,7 @@
       </table>
     </div>
     <!-- 댓글 -->
+     <!-- <CommentComp :bid="boardInfo.id"/> -->
     <div class="row">
 
     </div>
@@ -53,7 +54,9 @@
 <script>
 import axios from 'axios';
 import BoardList from './BoardList.vue';
+// import CommentComp from './CommentComp.vue';
 export default{
+  // components:{CommentComp},
   data(){
     return{
       searchNo: "",
@@ -70,7 +73,7 @@ export default{
   methods:{
     async getBoardInfo(){
       let board = await axios.get(`http://localhost:3000/board/${this.searchNo}`);
-      this.boardInfo = board.data;
+      this.boardInfo = board.data[0];
     },
   goToUpdataForm(id){
       // param : boardInfo/1 (라우터 /:id)    or    query : ?id=1 
