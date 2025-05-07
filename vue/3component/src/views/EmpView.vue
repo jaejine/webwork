@@ -9,7 +9,7 @@
 import EmpList from "../components/EmpList.vue"
 import EmpForm from "../components/EmpForm.vue"
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3000/emp"; // API 서버 주소
+axios.defaults.baseURL = "/api/emp"; // API 서버 주소
 export default {
   components : {EmpList, EmpForm},
   data(){

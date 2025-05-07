@@ -9,15 +9,20 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: LoginView,
+    // },
     {
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue'),
     },
     {
-      path: '/boardList',
-      name: 'boardList',
-      component: () => import('../views/BoardList.vue')
+      path: '/boardTable',
+      name: 'boardTable',
+      component: () => import('../views/boardTable.vue')
     },
     {
       path: '/boardInfo',
@@ -28,6 +33,16 @@ const router = createRouter({
       path: '/boardForm',
       name: 'boardForm',
       component: () => import('../views/BoardForm.vue')
+    },
+    {
+      path: '/board',
+      name: 'boardForm',
+      component: () => import('../views/BoardForm.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue')
     },
   ],
 })

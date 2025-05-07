@@ -24,7 +24,7 @@
 </template>
 <script>
 import axios from 'axios';
-axios.defaults.baseURL = "http://localhost:3000/board"
+axios.defaults.baseURL = "/api/board"
 export default {
   data() {
     return {
@@ -40,7 +40,7 @@ export default {
       this.boardList = result.data;
     },
     // fetchList(){
-    //   axios.get("http://localhost:3000/board")
+    //   axios.get("/api/board")
     //        .then(response => this.boardList = response.data)
     // },
     goToDetail(id){

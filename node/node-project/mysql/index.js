@@ -4,6 +4,7 @@ const customer = require("./customersql")
 const board = require("./boardSql")
 const sqllist = { customer: customer, board: board };
 // sqllist["customer"]["selectList"]
+
 // mysql 접속 정보
 const conn = {
   host: process.env.DB_HOST,

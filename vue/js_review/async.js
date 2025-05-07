@@ -3,7 +3,7 @@
 import axios from 'axios'
 
 // function getBoard(){
-// axios("http://localhost:3000/board/1")
+// axios("/api/board/1")
 //      .then( res => console.log("2", res.data.title) )
 // }
 
@@ -17,7 +17,7 @@ import axios from 'axios'
 // 함수 앞에 async 처리할 부분앞  await then절 지우고
 function test(){
   async function getBoard(){
-    let res = await axios("http://localhost:3000/board/1")
+    let res = await axios("/api/board/1")
     console.log("2:", res.data.title)
   }
   console.log("1", "the end");

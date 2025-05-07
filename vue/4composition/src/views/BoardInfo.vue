@@ -1,0 +1,76 @@
+<template>
+  <div class="container">
+    <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center table-primary">번호 : </th><br>
+            <td scope="col" class="text-center">{{ boardInfo.id }}</td>
+            <th scope="col" class="text-center table-primary">작성일 : </th><br>
+            <td scope="col" class="text-center">{{ boardInfo.created_date }}</td>
+            <th scope="col" class="text-center table-primary">이름 : </th><br>
+            <td scope="col" class="text-center">{{ boardInfo.writer}}</td>
+          </tr>
+          <tr>
+            <th colspan="2" class="text-center table-primary">제목 : </th><br>
+            <td colspan="4">{{ boardInfo.title }}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6" class="text-left" valign="top" height="200">
+              <pre
+                style="white-space: pre-wrap;
+                  border: none;
+                  background-color: white; ">{{ boardInfo.content }}</pre>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6" class="text-center">
+              <button class="btn btn-xs btn-info" 
+              @click="goToUpdataForm(boardInfo.id)">
+                수정
+              </button>
+              <button class="btn btn-xs btn-warning" 
+              @click="goToListForm()">
+                목록
+              </button>
+              <button class="btn btn-xs btn-warning" 
+              @click="">
+                삭제
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 댓글 -->
+     <!-- <CommentComp :bid="boardInfo.id"/> -->
+    <div class="row">
+
+    </div>
+  </div>
+</template>
+<script setup>
+import axios from 'axios';
+import CommentComp from '@/components/CommentComp.vue';
+
+components:{CommentComp}
+
+const searchNo = {};
+const boardInfo = {};
+
+const getBoardInfo = async()=>{
+  let board = await axios.get(`/api/board/${this.searchNo}`);
+  boardInfo.value = board.data[0];
+}
+
+  goToUpdataForm(id){
+      // param : boardInfo/1 (라우터 /:id)    or    query : ?id=1 
+      this.$router.push({ path: "/boardForm", query: {id : id}})
+    },
+
+const goToListForm()=>{
+    router.push('/boardList')
+    }
+</script>
