@@ -17,16 +17,36 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
+    // {
+      // path: '/board',
+      // name: 'board',
+      // component: () => import('../views/BoardList.vue'),
+    // },
+    // {
+    //   path: '/boardInfo',
+    //   name: 'boardInfo',
+    //   component: () => import('../views/BoardInfo.vue'),
+    // },
     {
-      path: '/board',
-      name: 'board',
-      component: () => import('../views/BoardList.vue'),
+      path: '/nested',
+      name: 'nested',
+      component: () => import('../views/NestedComponent.vue'),
     },
     {
-      path: '/boardInfo',
-      name: 'boardInfo',
-      component: () => import('../views/BoardInfo.vue'),
-  }
+      path: '/component',
+      name: 'component',
+      component: () => import('../views/ComponentView.vue'),
+    },
+    {
+      path: '/provide',
+      name: 'provide',
+      component: () => import('../views/ProvideInject.vue'),
+    },
+    {
+      path: '/watch',
+      name: 'watch',
+      component: () => import('../views/WatchView.vue'),
+    }
 ]})
 
 export default router
