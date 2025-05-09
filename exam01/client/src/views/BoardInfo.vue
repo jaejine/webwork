@@ -31,9 +31,7 @@
           </tr>
         </tbody>
         <tr>
-          <td>작성자</td>
-          <td>내용</td>
-          <td>시간</td>
+          <CommentComp :boarId="boardInfo.NO" />
         </tr>
       </table>
     </div>
@@ -43,6 +41,7 @@
   </div>
 </template>
 <script>
+import CommentComp from '@/components/CommentComp.vue';
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';  // useRouter, useRoute 훅을 사용합니다.
 import axios from 'axios';
