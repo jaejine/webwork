@@ -18,6 +18,9 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/empcom">사원관리</RouterLink>
         <RouterLink to="/empcomcp">수업</RouterLink>
         <RouterLink to="/slot">슬롯수업</RouterLink>
+        <RouterLink to="/dialog">dialog</RouterLink>
+        <RouterLink to="/store">StoreView</RouterLink>
+
 
       </nav>
     </div>
